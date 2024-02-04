@@ -13,8 +13,26 @@ sudo apt-get install qemu-system-arm libncurses5-dev gcc-aarch64-linux-gnu build
 
 ## Compile the project
 ```shell
-make
-make run
+make clean all
+make check
 ```
 
 ## Debug
+In this repo, there is no `aarch64-linux-gnu-gdb` in my macbook. Therefore, I use `gdb-multiarch` here
+```shell
+sudo apt install gdb-multiarch
+```
+
+When you are debuging, please open two terminals
+
+one enter `make debug` and the other enter `gdb-multiarch --tui build/ammaOS.elf`
+
+## projects
+This repo is used to implement an operating system step by step and with multi-subprojects, you can see all steps when you clone this, and the idea is refer to [mini-arm-os](https://github.com/jserv/mini-arm-os) which is friendly to some people interesting in operating system.
+
+There are several topics in this projects:
+
+0. Makefile: this project shows how to bring up an ARM64 machine
+1. asm: this project shows some basic assembly in ARM64
+
+
