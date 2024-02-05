@@ -26,18 +26,13 @@ include $(dir)/make.mk
 include $(SYSTEM)/mak/rend.mk
 # Recursive complete
 
-# find the source code path
-# if you does not use vpath, the compiler cannot find the source code path
-vpath %.c $(sort $(dir $(SRCS_TOTAL)))
-vpath %.S $(sort $(dir $(SRCS_TOTAL)))
-
 all: $(TARGET).bin
-$(SYSTEM_BUILD)/%.o: %.c
-	mkdir -p $(@D)
+$(SYSTEM_BUILD)/%.o: $(SYSTEM)/%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(FLAGS) -MMD -c $< -o $@ >> $(LOGFILE) 2>&1
 
-$(SYSTEM_BUILD)/%.o: %.S
-	mkdir -p $(@D)
+$(SYSTEM_BUILD)/%.o: $(SYSTEM)/%.S
+	@mkdir -p $(dir $@)
 	$(CC) $(AFLAGS) $(FLAGS) -MMD -c $< -o $@ >> $(LOGFILE) 2>&1
 
 $(TARGET).bin: $(LINKER) $(OBJS_TOTAL)

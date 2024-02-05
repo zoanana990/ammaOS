@@ -11,12 +11,13 @@
 sp                     := $(sp).x
 dirstack_$(sp)         := $(d)
 d                      := $(dir)
+build_d_path           := $(subst $(SYSTEM),$(SYSTEM)/build,$(d))
 
 SRCS_C_$(d)            := $(wildcard $(d)/*.c)
-OBJS_C_$(d)            := $(patsubst $(d)/%.c,$(SYSTEM_BUILD)/%.o,$(SRCS_C_$(d)))
+OBJS_C_$(d)            := $(patsubst $(d)/%.c,$(build_d_path)/%.o,$(SRCS_C_$(d)))
 
 SRCS_S_$(d)            := $(wildcard $(d)/*.S)
-OBJS_S_$(d)            := $(patsubst $(d)/%.S,$(SYSTEM_BUILD)/%.o,$(SRCS_S_$(d)))
+OBJS_S_$(d)            := $(patsubst $(d)/%.S,$(build_d_path)/%.o,$(SRCS_S_$(d)))
 
 SRCS_$(d)              := $(SRCS_S_$(d)) $(SRCS_C_$(d))
 OBJS_$(d)              := $(OBJS_S_$(d)) $(OBJS_C_$(d))

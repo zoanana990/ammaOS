@@ -11,7 +11,6 @@ SYSTEM_BUILD            := $(SYSTEM)/build
 TARGET                  := ammaOS
 
 ############################################################
-# include                 $(SYSTEM)/toolchain.mk
 include                 $(SYSTEM_MAK)/toolchain.mk
 
 ############################################################
