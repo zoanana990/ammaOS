@@ -5,7 +5,7 @@
 # qemu emulator board etc.
 ############################################################
 SYSTEM                  := $(shell pwd)
-SYSTEM_MAK              := $(shell pwd)/mak
+SYSTEM_MAK              := $(SYSTEM)/mak
 SYSTEM_BUILD            := $(SYSTEM)/build
 
 TARGET                  := ammaOS

@@ -5,5 +5,5 @@
 # 
 # Actually, you can ignore this file
 ############################################################
-d					:= $(dirstack_$(sp))
-sp					:= $(basename $(sp))
+d                    := $(dirstack_$(sp))
+sp                   := $(basename $(sp))
