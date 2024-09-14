@@ -1,0 +1,6 @@
+.idea
+*.o
+*.d
+build
+log.Makefile
+
